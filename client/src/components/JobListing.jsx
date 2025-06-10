@@ -80,10 +80,10 @@ const JobListing = () => {
                 {/* category Filter */}
                 <div className={showFilter ? "" : "max-lg:hidden"}>
                     <h4 className='font-medium text-lg py-4 '>Search by Categories</h4>
-                    <ul className='space-y-2 text-gray-600'>
+                    <ul className='space-y-5 text-gray-600'>
                         {
                             JobCategories.map((category, index) => (
-                                <li className='flex gap-3 item-center' key={index}>
+                                <li className='flex gap-3 items-center' key={index}>
                                     <input
                                         className='scale-125'
                                         type="checkbox"
@@ -100,10 +100,10 @@ const JobListing = () => {
                 {/* location Filter */}
                 <div className={showFilter ? "" : "max-lg:hidden"}>
                     <h4 className='font-medium text-lg py-4 pt-14'>Search by Location</h4>
-                    <ul className='space-y-2 text-gray-600'>
+                    <ul className='space-y-5 text-gray-600'>
                         {
                             JobLocations.map((location, index) => (
-                                <li className='flex gap-3 item-center' key={index}>
+                                <li className='flex gap-3 items-center' key={index}>
                                     <input
                                         className='scale-125'
                                         type="checkbox"
