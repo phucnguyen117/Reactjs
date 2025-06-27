@@ -37,13 +37,13 @@ export const applyForJob = async (req, res) => {
         const isAlreadyApplied = await JobApplication.findOne({ jobId, userId })
 
         if (isAlreadyApplied) {
-            return res.json({ success: false, message: "Already Applied" })
+            return res.json({ success: false, message: "Đã ứng tuyển từ trước" })
         }
 
         const jobData = await Job.findById(jobId)
 
         if (!jobData) {
-            return res.json({ success: false, message: "Job not found" })
+            return res.json({ success: false, message: "Không tìm thấy công việc" })
         }
 
         await JobApplication.create({
@@ -53,7 +53,7 @@ export const applyForJob = async (req, res) => {
             date: Date.now()
         })
 
-        res.json({ success: true, message: "Applied Successfully" })
+        res.json({ success: true, message: "Gửi đơn ứng tuyển thành công" })
 
     } catch (error) {
         res.json({ success: false, message: error.message })
@@ -102,7 +102,7 @@ export const updateUserResume = async (req, res) => {
 
         await userData.save()
 
-        return res.json({ success: true, message: 'Resume Updated' })
+        return res.json({ success: true, message: 'Thành Công' })
 
     } catch (error) {
 

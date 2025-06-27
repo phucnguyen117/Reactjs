@@ -33,6 +33,14 @@ import lock_icon from './lock_icon.svg'
 import samsung_logo from './samsung_logo.png'
 import adobe_logo from './adobe_logo.png'
 import amazon_logo from './amazon_logo.png'
+import logo1 from './logo1.png'
+import background1 from './background1.jpg'
+import canon_logo from './canon_logo.png'
+import fpt_logo from './FPT_logo.png'
+import viettel_logo from './Viettel_logo.svg'
+import vinamilk_logo from './Vinamilk_logo.svg'
+import aeon_logo from './Aeon_logo.svg'
+import vng_logo from './VNG_logo.svg'
 
 export const assets = {
     logo,
@@ -69,28 +77,124 @@ export const assets = {
     lock_icon,
     samsung_logo,
     adobe_logo,
-    amazon_logo
+    amazon_logo,
+    logo1,
+    background1,
+    canon_logo,
+    fpt_logo,
+    viettel_logo,
+    vinamilk_logo,
+    aeon_logo,
+    vng_logo,
 }
 
 export const JobCategories = [
-    "Programming",
-    "Data Science",
-    "Designing",
-    "Networking",
-    "Management",
-    "Marketing",
-    "Cybersecurity",
-]
+  "Bảo trì / Kỹ thuật viên",
+  "Biên phiên dịch",
+  "Chăm sóc khách hàng",
+  "Chuyên viên marketing",
+  "Chuyên viên pháp lý",
+  "Chuyên viên tài chính",
+  "Chuyên viên tuyển dụng",
+  "Giáo viên / Giảng viên",
+  "Hành chính / Thư ký",
+  "Hướng dẫn viên du lịch",
+  "Kế toán / Kiểm toán",
+  "Kiểm thử phần mềm",
+  "Kỹ sư cơ khí",
+  "Kỹ sư điện / Điện tử",
+  "Kỹ sư môi trường",
+  "Kỹ sư xây dựng",
+  "Kỹ thuật viên IT",
+  "Lập trình viên",
+  "Nhân sự",
+  "Nhân viên bán hàng",
+  "Nhân viên bán thời gian",
+  "Nhân viên kiểm toán",
+  "Nhân viên kinh doanh",
+  "Nhân viên lễ tân",
+  "Nhân viên môi giới bất động sản",
+  "Nhân viên sản xuất",
+  "Nhân viên truyền thông / PR",
+  "Nhân viên xuất nhập khẩu",
+  "Nhân viên dịch vụ khách sạn",
+  "Phân tích dữ liệu",
+  "Quản lý chất lượng (QA/QC)",
+  "Quản lý dự án",
+  "Quản lý kho / Logistics",
+  "Quản lý nhà hàng / Khách sạn",
+  "Thiết kế đồ họa",
+  "Thực tập sinh",
+  "Tiếp thị số (Digital Marketing)",
+  "Việc làm tự do (Freelance)",
+  "Y tá / Điều dưỡng"
+];
 
 export const JobLocations = [
-    "Bangalore",
-    "Washington",
-    "Hyderabad",
-    "Mumbai",
-    "California",
-    "Chennai",
-    "New York"
-]
+    "An Giang",
+    "Bà Rịa - Vũng Tàu",
+    "Bắc Giang",
+    "Bắc Kạn",
+    "Bạc Liêu",
+    "Bắc Ninh",
+    "Bến Tre",
+    "Bình Định",
+    "Bình Dương",
+    "Bình Phước",
+    "Bình Thuận",
+    "Cà Mau",
+    "Cần Thơ",
+    "Cao Bằng",
+    "Đà Nẵng",
+    "Đắk Lắk",
+    "Đắk Nông",
+    "Điện Biên",
+    "Đồng Nai",
+    "Đồng Tháp",
+    "Gia Lai",
+    "Hà Giang",
+    "Hà Nam",
+    "Hà Nội",
+    "Hà Tĩnh",
+    "Hải Dương",
+    "Hải Phòng",
+    "Hậu Giang",
+    "Hòa Bình",
+    "Hưng Yên",
+    "Khánh Hòa",
+    "Kiên Giang",
+    "Kon Tum",
+    "Lai Châu",
+    "Lâm Đồng",
+    "Lạng Sơn",
+    "Lào Cai",
+    "Long An",
+    "Nam Định",
+    "Nghệ An",
+    "Ninh Bình",
+    "Ninh Thuận",
+    "Phú Thọ",
+    "Phú Yên",
+    "Quảng Bình",
+    "Quảng Nam",
+    "Quảng Ngãi",
+    "Quảng Ninh",
+    "Quảng Trị",
+    "Sóc Trăng",
+    "Sơn La",
+    "Tây Ninh",
+    "Thái Bình",
+    "Thái Nguyên",
+    "Thanh Hóa",
+    "Thừa Thiên Huế",
+    "Tiền Giang",
+    "TP Hồ Chí Minh",
+    "Trà Vinh",
+    "Tuyên Quang",
+    "Vĩnh Long",
+    "Vĩnh Phúc",
+    "Yên Bái"
+];
 
 // Sample data for Manage Jobs Page
 export const manageJobsData = [

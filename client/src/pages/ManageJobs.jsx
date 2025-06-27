@@ -69,20 +69,20 @@ const ManageJobs = () => {
 
   return jobs ? jobs.length === 0 ? (
     <div className='flex items-center justify-center h-[70vh]'>
-      <p className='text-xl sm:text-2xl'>No Jobs Available or posted</p>
+      <p className='text-xl sm:text-2xl'>Không có việc làm nào có sẵn hoặc được đăng</p>
     </div>
   ) : (
-    <div className='container p-4 max-w-5xl'>
+    <div className='container p-4 max-w-8xl'>
       <div className='overflow-x-auto'>
         <table className='min-w-full bg-white border border-gray-200 max-sm:text-sm'>
-          <thead>
+          <thead className='bg-gray-50'>
             <tr>
               <th className='py-2 px-4 border-b text-left max-sm:hidden'>#</th>
-              <th className='py-2 px-4 border-b text-left'>Job Title</th>
-              <th className='py-2 px-4 border-b text-left max-sm:hidden'>Date</th>
-              <th className='py-2 px-4 border-b text-left max-sm:hidden'>Location</th>
-              <th className='py-2 px-4 border-b text-center'>Applicants</th>
-              <th className='py-2 px-4 border-b text-left'>Visible</th>
+              <th className='py-2 px-4 border-b text-left'>Tên công việc</th>
+              <th className='py-2 px-4 border-b text-left max-sm:hidden'>Ngày đăng</th>
+              <th className='py-2 px-4 border-b text-left max-sm:hidden'>Nơi làm việc</th>
+              <th className='py-2 px-4 border-b text-center'>Số ứng tuyển</th>
+              <th className='py-2 px-4 border-b text-left'>Hiện thị</th>
             </tr>
           </thead>
           <tbody>
@@ -102,7 +102,7 @@ const ManageJobs = () => {
         </table>
       </div>
       <div className='mt-4 flex justify-end'>
-        <button onClick={() => navigate('/dashboard/add-job')} className='bg-black text-white py-2 px-4 rounded'>Add new job</button>
+        <button onClick={() => navigate('/dashboard/add-job')} className='bg-black text-white py-2 px-4 rounded'>Thêm việc mới</button>
       </div>
     </div>
   ) : <Loading />

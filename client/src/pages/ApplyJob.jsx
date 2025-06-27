@@ -7,10 +7,37 @@ import Footer from '../components/Footer'
 import { assets } from '../assets/assets'
 import kconvert from 'k-convert'
 import moment from 'moment'
+import 'moment/locale/vi'; // Thêm locale tiếng Việt cho Moment.js
 import JobCard from '../components/JobCard'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { useAuth } from '@clerk/clerk-react'
+
+// Hàm định dạng tiền tệ VND
+const formatVND = (amount) => {
+  if (!amount) return 'Thỏa thuận';
+  return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' VNĐ';
+};
+
+// Tùy chỉnh locale tiếng Việt cho Moment.js
+moment.updateLocale('vi', {
+  relativeTime: {
+    future: 'trong %s',
+    past: '%s trước',
+    s: 'vài giây',
+    ss: '%d giây',
+    m: '1 phút',
+    mm: '%d phút',
+    h: '1 giờ',
+    hh: '%d giờ',
+    d: '1 ngày',
+    dd: '%d ngày',
+    M: '1 tháng',
+    MM: '%d tháng',
+    y: '1 năm',
+    yy: '%d năm',
+  },
+});
 
 const Applyjob = () => {
 
@@ -24,6 +51,9 @@ const Applyjob = () => {
   const [isAlreadyApplied, setIsAlreadyApplied] = useState(false)
 
   const { jobs, backendUrl, userData, userApplications, fetchUserApplications } = useContext(AppContext)
+
+  // Đặt locale tiếng Việt cho Moment.js
+  moment.locale('vi');
 
   const fetchJob = async () => {
 
@@ -47,12 +77,12 @@ const Applyjob = () => {
     try {
 
       if (!userData) {
-        return toast.error('Login to apply for jobs')
+        return toast.error('Đăng nhập để ứng tuyển việc làm')
       }
 
       if (!userData.resume) {
         navigate('/applications')
-        return toast.error('Upload resume to apply')
+        return toast.error('Cần tải sơ yếu lý lịch lên để ứng tuyển')
       }
 
       const token = await getToken()
@@ -75,7 +105,7 @@ const Applyjob = () => {
   }
 
   const checkAlreadyApplied = () => {
-    const hasApplied = userApplications.some( item => item.jobId._id === JobData._id)
+    const hasApplied = userApplications.some(item => item.jobId._id === JobData._id)
     setIsAlreadyApplied(hasApplied)
 
   }
@@ -84,11 +114,11 @@ const Applyjob = () => {
     fetchJob()
   }, [id])
 
-  useEffect(() =>{
+  useEffect(() => {
     if (userApplications && userApplications.length > 0 && JobData) {
       checkAlreadyApplied()
     }
-  },[JobData,userApplications, id])
+  }, [JobData, userApplications, id])
 
   return JobData ? (
     <>
@@ -116,28 +146,28 @@ const Applyjob = () => {
                   </span>
                   <span className='flex items-center gap-1'>
                     <img src={assets.money_icon} alt="" />
-                    CTC: {kconvert.convertTo(JobData.salary)}
+                    Lương: {formatVND(JobData.salary)}
                   </span>
                 </div>
               </div>
             </div>
 
             <div className='flex flex-col justify-center text-end text-sm max-md:mx-auto max-md:text-center'>
-              <button onClick={applyHandler} className='bg-blue-600 p-2.5 px-10 text-white rounded'>{isAlreadyApplied? 'Already Applied':'Apply Now'}</button>
-              <p className='mt-1 text-gray-600'>Posted {moment(JobData.date).fromNow()}</p>
+              <button onClick={applyHandler} className='bg-blue-600 p-2.5 px-10 text-white rounded'>{isAlreadyApplied ? 'Đã ứng tuyển' : 'Ứng Tuyển'}</button>
+              <p className='mt-1 text-gray-600'>Đăng {moment(JobData.date).fromNow()}</p>
             </div>
 
           </div>
 
           <div className='flex flex-col lg:flex-row justify-between items-start'>
             <div className='w-full lg:w-2/3'>
-              <h2 className='font-bold text-2xl mb-4'> Job description </h2>
+              <h2 className='font-bold text-2xl mb-4'> Mô tả công việc </h2>
               <div className='rich-text' dangerouslySetInnerHTML={{ __html: JobData.description }} ></div>
-              <button onClick={applyHandler} className='bg-blue-600 p-2.5 px-10 text-white rounded mt-10'>{isAlreadyApplied? 'Already Applied':'Apply Now'}</button>
+              <button onClick={applyHandler} className='bg-blue-600 p-2.5 px-10 text-white rounded mt-10'>{isAlreadyApplied ? 'Đã ứng tuyển' : 'Ứng Tuyển'}</button>
             </div>
             {/* Right Section More Jobs */}
             <div className='w-full lg:w-1/3 mt-8 lg:mt-0 lg:ml-8 space-y-5'>
-              <h2>More jobs from {JobData.companyId.name}</h2>
+              <h2>Các việc làm khác của {JobData.companyId.name}</h2>
               {jobs.filter(job => job._id !== JobData._id && job.companyId._id === JobData.companyId._id)
                 .filter(job => {
                   //  Set of applied jobIds
